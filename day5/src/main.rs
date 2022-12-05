@@ -28,7 +28,6 @@ fn generate_ans(stacks: Vec<Stack>) -> String {
 
 fn get_stacks(data: &str) -> Vec<Stack> {
     let mut crate_data: Vec<&str> = Vec::new();
-    let mut list_of_crates: Vec<usize> = Vec::new();
     let mut total_stack = 0;
     let mut stack: Vec<Stack> = Vec::new();
 
@@ -40,7 +39,6 @@ fn get_stacks(data: &str) -> Vec<Stack> {
             for a_number in a_line.split(' ') {
                 if !a_number.is_empty() {
                     total_stack += 1;
-                    list_of_crates.push(a_number.parse().unwrap_or_default());
                 }
             }
         } else {

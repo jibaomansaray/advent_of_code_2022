@@ -35,9 +35,9 @@ fn check_visibility_up(subject: &Tree, grid: &Vec<Vec<Tree>>) -> (bool, i32) {
     loop {
         let a_tree = grid
             .get(row_up)
-            .expect("bad")
+            .expect("could not get row")
             .get(subject.column)
-            .expect("bad");
+            .expect("could not get column");
         if a_tree.height >= subject.height {
             tree_ideal += 1;
             visible = false;
@@ -63,9 +63,9 @@ fn check_visibility_down(subject: &Tree, grid: &Vec<Vec<Tree>>, total_rows: usiz
     for row_down in subject.row + 1..total_rows {
         let a_tree = grid
             .get(row_down)
-            .expect("bad")
+            .expect("could not get row")
             .get(subject.column)
-            .expect("bad");
+            .expect("could not get column");
         if a_tree.height >= subject.height {
             visible = false;
             tree_ideal += 1;
@@ -86,9 +86,9 @@ fn check_visibility_left(subject: &Tree, grid: &Vec<Vec<Tree>>) -> (bool, i32) {
     loop {
         let a_tree = grid
             .get(subject.row)
-            .expect("bad")
+            .expect("could not get row")
             .get(column_left)
-            .expect("bad");
+            .expect("could not get column");
         if a_tree.height >= subject.height {
             visible = false;
             tree_ideal += 1;
@@ -118,9 +118,9 @@ fn check_visibility_right(
     for column_right in subject.column + 1..total_columns {
         let a_tree = grid
             .get(subject.row)
-            .expect("bad")
+            .expect("could not get row")
             .get(column_right)
-            .expect("bad");
+            .expect("could not get column");
         if a_tree.height >= subject.height {
             visible = false;
             tree_ideal += 1;
